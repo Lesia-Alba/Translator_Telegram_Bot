@@ -11,8 +11,10 @@ Create a `.env` file in the project root with the following content:
 ```env
 TOKEN_BOT=your_telegram_bot_token_here
 ```
-### build Docker image and run Docker container
+### build Docker image
 docker build -t telegram-bot .
+
+### run Docker container
 docker run --env-file .env telegram-bot
 
-#### Be careful: do not commit your `.env` file to the repository.
+#### Be careful: do not commit your '.env' file to the repository.
