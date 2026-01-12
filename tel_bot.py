@@ -2,7 +2,7 @@ import logging
 import os
 import re
 
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher
 from aiogram.types import Message
 from aiogram.filters import Command
 
@@ -13,7 +13,10 @@ TOKEN = os.getenv("TOKEN_BOT")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO,
+    filename="bot.log",
+    format="%(asctime)s %(levelname)s %(message)s"
+)
 
 letters = {
     "А": "A", "Б": "B", "В": "V", "Г": "G", "Д": "D",
@@ -21,7 +24,7 @@ letters = {
     "Й": "I", "К": "K", "Л": "L", "М": "M", "Н": "N",
     "О": "O", "П": "P", "Р": "R", "С": "S", "Т": "T",
     "У": "U", "Ф": "F", "Х": "Kh", "Ц": "Ts", "Ч": "Ch",
-    "Ш": "Sh", "Щ": "Shch", "Ы": "Y", "Ъ": "IE", "Э": "E", "Ю": "IU", "Я": "IA"
+    "Ш": "Sh", "Щ": "Shch", "Ы": "Y", "Ъ": "IE", "Э": "E", "Ю": "IU", "Я": "IA", 'Ь':''
 }
 
 def translate(text: str) -> str:
